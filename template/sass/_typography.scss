@@ -1,0 +1,11 @@
+// import font
+
+@include font-face($font-prim, #{$path-prim}-Regular, 400, normal, $type);
+@include font-face($font-prim, #{$path-prim}-Medium, 500, normal, $type);
+@include font-face($font-prim, #{$path-prim}-SemiBold, 600, normal, $type);
+@include font-face($font-prim, #{$path-prim}-Bold, 700, normal, $type);
+
+@include font-face($font-sec #{$path-sec}-Regular, 400, normal, $type);
+@include font-face($font-sec #{$path-sec}-Medium, 500, normal, $type);
+@include font-face($font-sec #{$path-sec}-SemiBold, 600, normal, $type);
+@include font-face($font-sec #{$path-sec}-Bold, 700, normal, $type);

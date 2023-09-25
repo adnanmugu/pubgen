@@ -1,0 +1,33 @@
+// reset
+
+$font-prim: '';
+$font-sec: '';
+$url-prim: '';
+$url-sec: '';
+$path-prim: '../Fonts/#{$url-prim}';
+$path-sec: '../Fonts/#{$url-sec}';
+$type: 'ttf';
+
+// fontsize:
+
+$xsm: 10px;
+$sm: 12px;
+$md: 16px;
+$lg: 24px;
+$xlg: 32px;
+
+// font weight
+
+$thin: 200;
+$light: 300;
+$regular: 400;
+$medium: 500;
+$semiBold: 600;
+$bold: 700;
+
+// typoghraphy
+// line height
+
+$line-height-sm: 1.25;
+$line-height-md: 1.5;
+$indent: 1rem;

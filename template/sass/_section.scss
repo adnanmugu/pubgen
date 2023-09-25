@@ -1,0 +1,78 @@
+.initial {
+  text-indent: 0;
+  &::first-letter {
+    initial-letter: 2;
+    margin-right: 10px;
+    opacity: 40%;
+  }
+}
+
+.quote {
+  font-size: $lg;
+  font-weight: $bold;
+  width: 85%;
+  text-align: left;
+  text-transform: uppercase;
+  & p {
+    text-indent: 0;
+    text-align: left;
+    &::before {
+      content: '“';
+    }
+    &::after {
+      content: '”';
+    }
+  }
+}
+
+.footnote {
+  position: relative;
+  font-size: $xsm;
+  margin-top: 1.3rem;
+  & p {
+    line-height: $line-height-sm;
+    text-indent: 0;
+    margin: 0.5rem 0 0;
+  }
+  &::before {
+    content: ' ';
+    position: absolute;
+    width: 50%;
+    height: 2px;
+    top: 0;
+    left: 0;
+    background-color: black;
+    opacity: 50%;
+    z-index: 10;
+  }
+}
+
+.dialog {
+  padding-left: 1rem;
+  & p {
+    margin: 0;
+    margin-bottom: 0.4rem;
+    margin-top: 0.4rem;
+    text-indent: 0;
+  }
+}
+
+.refer {
+  display: flex;
+  flex-direction: column;
+  &__credit {
+    margin-top: 0.3rem;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+  }
+  &__quote {
+    &--small {
+      font-size: 14px;
+    }
+  }
+  &--small {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+  }
+}

@@ -1,0 +1,33 @@
+body {
+  font-family: $font-prim;
+  font-weight: $medium;
+  font-size: $md;
+  line-height: $line-height-md;
+  text-align: justify;
+  hyphens: auto;
+}
+
+p {
+  text-indent: $indent;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $font-sec;
+  line-height: $line-height-sm;
+  margin: 2rem 0 2rem 0;
+  text-align: left;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul,
+ol {
+  list-style: none;
+}

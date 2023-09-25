@@ -1,0 +1,86 @@
+.publisher {
+  @include centerArg(column, center, flex-start);
+  & p {
+    font-size: $sm;
+    font-weight: $medium;
+    text-indent: 0;
+    margin: 0.5rem 0 0.5rem 0;
+  }
+}
+
+.for {
+  @include centerArg(row, center, center);
+  & p {
+    font-size: $sm;
+    font-weight: $medium;
+    text-align: center;
+    text-indent: 0;
+    margin: 0.2rem;
+  }
+}
+
+.banner {
+  @include flexCenter;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  &__img {
+    width: 100%;
+    object-fit: contain;
+  }
+}
+
+.body-toc {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.toc {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  &__container {
+    font-weight: 500;
+    font-size: 1rem;
+  }
+  &__parent {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem 0 1rem 0;
+  }
+  &__title {
+    text-transform: uppercase;
+  }
+  &__tagline {
+    font-style: italic;
+  }
+  &__ol-parent {
+    margin: 0;
+    padding: 0;
+  }
+  &__ol-second {
+    padding: 0 0 0 1.2rem;
+    & li {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      text-align: left;
+      & a {
+        width: 90%;
+      }
+    }
+  }
+}
+
+.about {
+  &__img {
+    margin-right: 0.5rem;
+    width: 30%;
+    border-radius: 8px;
+    float: left;
+  }
+}
