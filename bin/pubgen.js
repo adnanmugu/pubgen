@@ -1,14 +1,15 @@
 #! /usr/bin/env node
 
 import { Command } from 'commander';
-import { log, init, book, edit } from '../lib/index.js';
+import { log, init, book, opf } from '../lib/index.js';
 
 const program = new Command();
 
 program
   .name('pub')
-  .description('These are pub command used in various situations.')
-  .addHelpCommand('help [cmd]', 'Display help for [cmd]')
+  .usage(log.helpCmd)
+  .description(log.helpDescription())
+  .addHelpCommand('help [cmd]', 'Display help for [command].')
   .configureHelp(log.helpConfig)
   .helpOption(false)
   .action(function (options) {
@@ -20,32 +21,23 @@ program
   .option('-y, --yes', 'Generates without any question.')
   .description('Generates .epub project template')
   .action(function (options) {
-    options.yes ? init('yes') : init('man');
-  });
-
-program
-  .command('edit')
-  .description('Edit a package.opf file.')
-  .option('-d, --metadata', 'Update metadata.')
-  .option('-f, --manifest <dir>', 'Update manifest.')
-  .option('-s, --spine <dir>', 'Update Spine.')
-  .option('-t, --trim <file>', 'Trim EOL or \\n character.')
-  .action((options) => {
-    const projectName = process.cwd();
-    options.manifest === '.' && edit.updateManifest(projectName);
-    options.spine === '.' && edit.updateSpine(projectName);
-    options.metadata && edit.updateManifest();
-    options.trim && edit.trim(options.trim);
+    options.yes && init(options.yes);
   });
 
 program
   .command('book')
   .description('Generate .epub book asset.')
-  .option('-p, --pakcage', 'Sync package.opf file.')
-  .option('-c, --cover <file>', 'Add book cover.')
+  .option('-d, --metadata', 'Update metadata.')
+  .option('-u, --update <project directory>', 'Sync manifest and spine.')
+  .option('-t, --trim <file>', 'Trim EOL or \\n character.')
   .option('-s, --sass', 'Generates sass template.')
   .action((options) => {
     options.sass && book.sass();
+    options.trim && book.trim(options.trim);
+    // options.metadata &&
+    options.sync === '.'
+      ? opf.updateMnifestSpine(process.cwd())
+      : opf.updateMnifestSpine(options.sync);
   });
 
 program.parse(process.argv);
