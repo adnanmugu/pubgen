@@ -21,23 +21,23 @@ program
   .option('-y, --yes', 'Generates without any question.')
   .description('Generates .epub project template')
   .action(function (options) {
-    options.yes && init(options.yes);
+    init(options.yes);
   });
 
 program
   .command('book')
   .description('Generate .epub book asset.')
-  .option('-d, --metadata', 'Update metadata.')
-  .option('-u, --update <project directory>', 'Sync manifest and spine.')
+  // .option('-d, --metadata', 'Update metadata.')
+  // .option('-u, --update <project directory>', 'Sync manifest and spine.')
   .option('-t, --trim <file>', 'Trim EOL or \\n character.')
   .option('-s, --sass', 'Generates sass template.')
   .action((options) => {
     options.sass && book.sass();
     options.trim && book.trim(options.trim);
     // options.metadata &&
-    options.sync === '.'
-      ? opf.updateMnifestSpine(process.cwd())
-      : opf.updateMnifestSpine(options.sync);
+    // options.update === '.'
+    //   ? opf.updateMnifestSpine(process.cwd())
+    //   : opf.updateMnifestSpine(options.update);
   });
 
 program.parse(process.argv);
