@@ -1,6 +1,6 @@
 #! /usr/bin/env node
 
-import { Command } from 'commander';
+import { Argument, Command } from 'commander';
 import init from '#command/init.js';
 import * as book from '#command/book.js';
 import * as log from '#util/logger.js';
@@ -51,6 +51,17 @@ program
     // options.update === '.'
     //   ? opf.updateMnifestSpine(process.cwd())
     //   : opf.updateMnifestSpine(options.update);
+  });
+
+program
+  .command('add')
+  .description('The functionality for adding section file')
+  .argument('[init]', 'integer argument')
+  .argument('[end]', 'integer argument')
+  .option('-s, --section', 'section file')
+  .option('-c, --css', 'Manual loop')
+  .action((init, end) => {
+    console.log(`${init} + ${end}`);
   });
 
 program.parse(process.argv);
